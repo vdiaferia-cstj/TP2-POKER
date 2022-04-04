@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP2_POKER;
 
 namespace AtelierOO_101.Classes
 {
@@ -20,6 +21,8 @@ namespace AtelierOO_101.Classes
         private Paquet lePaquet = new Paquet();
 
         private MainPoker[] MainsDesJoueurs;
+        
+        
 
         public RondePoker()
         {
@@ -44,8 +47,12 @@ namespace AtelierOO_101.Classes
                 int indice = i / NB_JOUEURS;
                 MainsDesJoueurs[i % NB_JOUEURS].AjouterCarte(indice, c);
             }
-
             TricherMainsDesJoueurs();
+
+            MainsDesJoueurs[0].Evaluer();
+
+
+
 
             for (int i = 0; i < NB_JOUEURS; i++)
             {
@@ -56,11 +63,11 @@ namespace AtelierOO_101.Classes
 
         private void TricherMainsDesJoueurs()
         {
-            MainsDesJoueurs[0].lesCartes[0] = new Carte(0, 11);
-            MainsDesJoueurs[0].lesCartes[1] = new Carte(0, 10);
-            MainsDesJoueurs[0].lesCartes[2] = new Carte(0, 9);
-            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 0);
-            MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 0);
+            MainsDesJoueurs[0].lesCartes[0] = new Carte(1, 7);
+            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 7);
+            MainsDesJoueurs[0].lesCartes[2] = new Carte(3, 7);
+            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 6);
+            MainsDesJoueurs[0].lesCartes[4] = new Carte(0, 3);
 
             MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 12);
             MainsDesJoueurs[1].lesCartes[1] = new Carte(1, 11);
@@ -91,7 +98,7 @@ namespace AtelierOO_101.Classes
         {
             Console.SetCursorPosition(0, 1);
             CouleurEntete();
-            Console.Write(" Valeurs des mains au Poker\n      Codé par Alain Martel");
+            Console.Write(" Valeurs des mains au Poker\n      Codé par Vincent Diaferia");
         }
         public void CouleurEntete()
         {

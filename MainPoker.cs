@@ -11,20 +11,29 @@ namespace AtelierOO_101.Classes
     {
         public Carte[] lesCartes { get; set; }
 
+        private int _valeur;
+
         private Evaluateur evaluateur;
         public MainPoker()
         {
+            _valeur = 0;
             lesCartes = new Carte[RondePoker.NB_CARTES_PAR_MAIN];
             for(int i=0; i<RondePoker.NB_CARTES_PAR_MAIN; i++)
             {
                 lesCartes[i] = new Carte();
+
             }
-            evaluateur = new Evaluateur(lesCartes);
         }
 
         public void AjouterCarte(int indice, Carte c)
         {
             lesCartes[indice] = c;
+        }
+        public void Evaluer()
+        {
+            evaluateur = new Evaluateur(lesCartes);
+            _valeur = evaluateur.getValeur();
+            
         }
 
         public void Afficher(int numJoueur)

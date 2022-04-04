@@ -26,6 +26,15 @@ namespace AtelierOO_101.Classes
             _sorte = s;
         }
 
+       public int getValeur()
+        {
+            return _valeur;
+        }
+        
+        public int getSorte()
+        {
+            return _sorte;
+        }
         public int Afficher(int decalageX, int decalageY)
         {
             SetValeurTexte();
