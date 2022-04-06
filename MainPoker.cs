@@ -14,6 +14,8 @@ namespace AtelierOO_101.Classes
         private int _valeur;
 
         private Evaluateur evaluateur;
+
+        private string valeurEnFrancais;
         public MainPoker()
         {
             _valeur = 0;

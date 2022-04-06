@@ -7,8 +7,8 @@ namespace TP2_Poker
     {
         static void Main(string[] args)
         {
-            RondePoker ronde= new();
-            Paquet paquet = new();
+            RondePoker ronde= new RondePoker();
+            Paquet paquet = new Paquet();
             bool go = true;
             string decision;
             while (go)

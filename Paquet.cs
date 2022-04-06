@@ -39,7 +39,7 @@ namespace AtelierOO_101.Classes
 
         public void Brasser()
         {
-            Random alea = new();
+            Random alea = new Random();
             _curseur = 0;
 
 

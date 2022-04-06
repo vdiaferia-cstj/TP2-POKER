@@ -50,7 +50,7 @@ namespace AtelierOO_101.Classes
             TricherMainsDesJoueurs();
 
             MainsDesJoueurs[0].Evaluer();
-
+            
 
 
 
@@ -63,11 +63,11 @@ namespace AtelierOO_101.Classes
 
         private void TricherMainsDesJoueurs()
         {
-            MainsDesJoueurs[0].lesCartes[0] = new Carte(1, 7);
-            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 7);
-            MainsDesJoueurs[0].lesCartes[2] = new Carte(3, 7);
-            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 6);
-            MainsDesJoueurs[0].lesCartes[4] = new Carte(0, 3);
+            MainsDesJoueurs[0].lesCartes[0] = new Carte(1, 12);
+            MainsDesJoueurs[0].lesCartes[1] = new Carte(1, 11);
+            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 10);
+            MainsDesJoueurs[0].lesCartes[3] = new Carte(1, 9);
+            MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 8);
 
             MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 12);
             MainsDesJoueurs[1].lesCartes[1] = new Carte(1, 11);
@@ -112,6 +112,18 @@ namespace AtelierOO_101.Classes
              lePaquet.Afficher();
              Console.ReadLine();
             return 0;
+            
         }
+        
+        
+         
+          public int EvaluerMains(int numMain) //Calcule et initialise la valeur de chaque main des Joueurs
+            {
+         //   MainsDesJoueurs[numMain-].Evaluer();
+
+            return 0;
+        }
+            /* DeterminerGagnant() Trouve le ou les gagnants
+         */
     }
 }
