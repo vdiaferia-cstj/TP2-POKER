@@ -1,4 +1,5 @@
 ﻿using AtelierOO_101.Classes;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,42 +61,73 @@ namespace TP2_POKER
             }
             if (carree())
             {
-                valeurMain = CARREE;
+                valeurDesCartes =+((int)Math.Pow(Cartes[4].getValeur(),0));
+                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
+                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
+                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
+                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
+                valeurMain = CARREE + valeurDesCartes;
                 return valeurMain;
             }
             if (full())
             {
-                valeurMain = FULL;
+                valeurDesCartes = +((int)Math.Pow(Cartes[4].getValeur(), 0));
+                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
+                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
+                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
+                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
+                
+                valeurMain = FULL + valeurDesCartes;
                 return valeurMain;
             }
             if (couleur())
             {
-                valeurMain = COULEUR;
+                valeurDesCartes = Cartes[0].getValeur();
+
+                valeurMain = COULEUR + valeurDesCartes;
                 return valeurMain;
             }
             if (quinte())
             {
-                valeurMain = QUINTE;
+                valeurDesCartes = +((int)Math.Pow(Cartes[4].getValeur(), 0));
+                
+                valeurMain = QUINTE + valeurDesCartes;
                 return valeurMain;
             }
             if (brelan())
             {
-                valeurMain = BRELAN;
+                valeurDesCartes = +((int)Math.Pow(Cartes[4].getValeur(), 0));
+                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
+                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
+                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
+                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
+                valeurMain = BRELAN + valeurDesCartes;
                 return valeurMain;
             }
             if (doublePaire())
             {
-                valeurMain = DOUBLE_PAIRE;
+                valeurDesCartes = +((int)Math.Pow(Cartes[4].getValeur(), 0));
+                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
+                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
+                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
+                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
+                valeurMain = DOUBLE_PAIRE + valeurDesCartes;
                 return valeurMain;
             }
             if (paire())
             {
-                valeurMain = PAIRE;
+                valeurDesCartes = +((int)Math.Pow(Cartes[4].getValeur(), 0));
+                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
+                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
+                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
+                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
+                valeurMain = PAIRE + valeurDesCartes;
                 return valeurMain;
             }
             if (carteHaute())
             {
-                valeurMain = CARTE_HAUTE;
+                valeurDesCartes = Cartes[0].getValeur();
+                valeurMain = CARTE_HAUTE + valeurDesCartes;
                 return valeurMain;
             }
             return 0;
@@ -175,7 +207,10 @@ namespace TP2_POKER
         }
         private bool quinte()
         {
-            if ((Cartes[0].getValeur() - 4) == Cartes[4].getValeur())
+            if ((Cartes[0].getValeur() - 1) == Cartes[1].getValeur()
+             && (Cartes[1].getValeur() - 1) == Cartes[2].getValeur()
+             && (Cartes[2].getValeur() - 1) == Cartes[3].getValeur()
+             && (Cartes[3].getValeur() - 1) == Cartes[4].getValeur())
             {
                 return true;
             }
@@ -186,14 +221,14 @@ namespace TP2_POKER
         }
         private bool brelan()
         {
-            if ((Cartes[0].getSorte() == Cartes[1].getSorte() &&
-                Cartes[1].getSorte() == Cartes[2].getSorte())
+            if ((Cartes[0].getValeur() == Cartes[1].getValeur() &&
+                Cartes[1].getValeur() == Cartes[2].getValeur())
                 ||
-                (Cartes[1].getSorte() == Cartes[2].getSorte() &&
-                Cartes[2].getSorte() == Cartes[3].getSorte())
+                (Cartes[1].getValeur() == Cartes[2].getValeur() &&
+                Cartes[2].getValeur() == Cartes[3].getValeur())
                 ||
-                (Cartes[2].getSorte() == Cartes[3].getSorte() &&
-                Cartes[3].getSorte() == Cartes[4].getSorte()))
+                (Cartes[2].getValeur() == Cartes[3].getValeur() &&
+                Cartes[3].getValeur() == Cartes[4].getValeur()))
             {
                 return true;
             }

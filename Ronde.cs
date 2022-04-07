@@ -50,7 +50,8 @@ namespace AtelierOO_101.Classes
             TricherMainsDesJoueurs();
 
             MainsDesJoueurs[0].Evaluer();
-            
+            MainsDesJoueurs[1].Evaluer();
+
 
 
 
@@ -63,17 +64,17 @@ namespace AtelierOO_101.Classes
 
         private void TricherMainsDesJoueurs()
         {
-            MainsDesJoueurs[0].lesCartes[0] = new Carte(1, 12);
-            MainsDesJoueurs[0].lesCartes[1] = new Carte(1, 11);
-            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 10);
-            MainsDesJoueurs[0].lesCartes[3] = new Carte(1, 9);
-            MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 8);
+            MainsDesJoueurs[0].lesCartes[0] = new Carte(3, 8);
+            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 8);
+            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 8);
+            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 3);
+            MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 4);
 
-            MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 12);
-            MainsDesJoueurs[1].lesCartes[1] = new Carte(1, 11);
-            MainsDesJoueurs[1].lesCartes[2] = new Carte(1, 10);
-            MainsDesJoueurs[1].lesCartes[3] = new Carte(2, 2);
-            MainsDesJoueurs[1].lesCartes[4] = new Carte(2, 2);
+            MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 8);
+            MainsDesJoueurs[1].lesCartes[1] = new Carte(1, 8);
+            MainsDesJoueurs[1].lesCartes[2] = new Carte(1, 5);
+            MainsDesJoueurs[1].lesCartes[3] = new Carte(2, 4);
+            MainsDesJoueurs[1].lesCartes[4] = new Carte(2, 8);
 
             MainsDesJoueurs[2].lesCartes[0] = new Carte(0, 9);
             MainsDesJoueurs[2].lesCartes[1] = new Carte(1, 8);
@@ -114,13 +115,13 @@ namespace AtelierOO_101.Classes
             return 0;
             
         }
-        
-        
-         
-          public int EvaluerMains(int numMain) //Calcule et initialise la valeur de chaque main des Joueurs
-            {
-         //   MainsDesJoueurs[numMain-].Evaluer();
 
+
+
+        public int EvaluerMains(int numMain) //Calcule et initialise la valeur de chaque main des Joueurs
+        {
+            //   MainsDesJoueurs[numMain-].Evaluer();
+            MainsDesJoueurs[0].Evaluer();
             return 0;
         }
             /* DeterminerGagnant() Trouve le ou les gagnants
