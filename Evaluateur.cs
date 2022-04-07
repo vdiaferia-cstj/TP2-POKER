@@ -57,17 +57,12 @@ namespace TP2_POKER
             {
                 valeurDesCartes = Cartes[0].getValeur();
                 valeurMain = QUINTE_COULEUR + valeurDesCartes;
-                return valeurMain;
+               return valeurMain;
+               
             }
             if (carree())
             {
-                valeurDesCartes =+((int)Math.Pow(Cartes[4].getValeur(),0));
-                valeurDesCartes = +((int)Math.Pow(Cartes[3].getValeur(), 1));
-                valeurDesCartes = +((int)Math.Pow(Cartes[2].getValeur(), 2));
-                valeurDesCartes = +((int)Math.Pow(Cartes[1].getValeur(), 3));
-                valeurDesCartes = +((int)Math.Pow(Cartes[0].getValeur(), 4));
-                valeurMain = CARREE + valeurDesCartes;
-                return valeurMain;
+                return encodeCarree();
             }
             if (full())
             {
@@ -132,6 +127,22 @@ namespace TP2_POKER
             }
             return 0;
             
+        }
+        private int encodeCarree()
+        {
+            int valeur =0;
+            if (Cartes[0].getValeur() == Cartes[1].getValeur())
+            {
+                
+                valeur += (int)(Cartes[0].getValeur() * Math.Pow(13, 1));
+                valeur += (int)(Cartes[4].getValeur() * Math.Pow(13, 0));
+            }
+            else
+            {
+                valeur += (int)(Cartes[4].getValeur() * Math.Pow(13, 1));
+                valeur += (int)(Cartes[0].getValeur() * Math.Pow(13, 0));
+            }
+            return valeur + CARREE;
         }
    // ConvertitValeurEnFrancais 
 

@@ -64,10 +64,10 @@ namespace AtelierOO_101.Classes
 
         private void TricherMainsDesJoueurs()
         {
-            MainsDesJoueurs[0].lesCartes[0] = new Carte(3, 8);
-            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 8);
-            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 8);
-            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 3);
+            MainsDesJoueurs[0].lesCartes[0] = new Carte(3, 9);
+            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 9);
+            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 9);
+            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 9);
             MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 4);
 
             MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 8);
