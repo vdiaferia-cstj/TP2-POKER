@@ -11,9 +11,14 @@ namespace AtelierOO_101.Classes
     {
         public Carte[] lesCartes { get; set; }
 
+        
         private int _valeur;
 
+        
+
         private Evaluateur evaluateur;
+
+        
 
         private string valeurEnFrancais;
         public MainPoker()
@@ -31,23 +36,40 @@ namespace AtelierOO_101.Classes
         {
             lesCartes[indice] = c;
         }
-        public void Evaluer()
+        public void Evaluer (int nbJoueur)
         {
+         
             evaluateur = new Evaluateur(lesCartes);
             _valeur = evaluateur.getValeur();
-            
+            valeurEnFrancais = evaluateur.ConvertitValeurEnFrancais(_valeur);
+            AfficherValeur(nbJoueur,valeurEnFrancais, 5);
         }
 
+        public void AfficherGagnant(int joueurGagnant)
+        {
+
+            evaluateur = new Evaluateur(lesCartes);
+            _valeur = evaluateur.getValeur();
+            valeurEnFrancais = evaluateur.ConvertitValeurEnFrancais(_valeur);
+            AfficherValeur(joueurGagnant, valeurEnFrancais, joueurGagnant);
+        }
+        public int getValeurMain()
+        {
+            evaluateur = new Evaluateur(lesCartes);
+            int valeur;
+            valeur = evaluateur.getValeur();
+            return valeur;
+        }
         public void Afficher(int numJoueur)
         {
             for (int i = 0; i < RondePoker.NB_CARTES_PAR_MAIN; i++)
             {
                 lesCartes[i].Afficher(i, numJoueur);
             }
-            AfficherValeur(numJoueur);
+         //   AfficherValeur(numJoueur);
         }
 
-        private void AfficherValeur(int numJoueur)
+        public void AfficherValeur(int numJoueur, string message, int nbJoueur)
         {
             int decalageEntete = 4;
             Console.SetCursorPosition(30, decalageEntete + (numJoueur * 4) + 1);
@@ -55,18 +77,64 @@ namespace AtelierOO_101.Classes
             Console.ForegroundColor = ConsoleColor.DarkBlue;
 
             if (numJoueur == 0)
-                Console.Write("Paire de Deux au Roi, Dame, Valet");
-            if (numJoueur == 1)
-                Console.Write("Paire de Quatre à l'As, Roi, Dame");
+            {
+                if (nbJoueur == 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.Write(message);
+            }
+                if (numJoueur == 1)
+            {
+                if (nbJoueur == 1)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.Write(message);
+            }
             if (numJoueur == 2)
-                Console.Write("Séquence au Valet");
+            {
+                if (nbJoueur == 2)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.Write(message);
+            }
             if (numJoueur == 3)
             {
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write("Couleur à l'AS, Valet, Dix, Quatre, deux");
+                if (nbJoueur == 3)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                }
+                Console.Write(message);
+
             }
         }
+
 
     }
 }

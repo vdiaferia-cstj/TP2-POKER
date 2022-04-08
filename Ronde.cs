@@ -20,6 +20,10 @@ namespace AtelierOO_101.Classes
 
         private Paquet lePaquet = new Paquet();
 
+        private int _gagnant;
+
+        private Evaluateur evaluateur;
+
         private MainPoker[] MainsDesJoueurs;
         
         
@@ -47,13 +51,16 @@ namespace AtelierOO_101.Classes
                 int indice = i / NB_JOUEURS;
                 MainsDesJoueurs[i % NB_JOUEURS].AjouterCarte(indice, c);
             }
-            TricherMainsDesJoueurs();
-
-            MainsDesJoueurs[0].Evaluer();
-            MainsDesJoueurs[1].Evaluer();
+           
 
 
+            MainsDesJoueurs[0].Evaluer(0);
+            MainsDesJoueurs[1].Evaluer(1);
+            MainsDesJoueurs[2].Evaluer(2);
+            MainsDesJoueurs[3].Evaluer(3);
 
+            _gagnant = Convert.ToInt32(determinerGagnant());
+            MainsDesJoueurs[_gagnant].AfficherGagnant(_gagnant);
 
             for (int i = 0; i < NB_JOUEURS; i++)
             {
@@ -64,27 +71,27 @@ namespace AtelierOO_101.Classes
 
         private void TricherMainsDesJoueurs()
         {
-            MainsDesJoueurs[0].lesCartes[0] = new Carte(3, 9);
-            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 9);
-            MainsDesJoueurs[0].lesCartes[2] = new Carte(1, 9);
-            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 9);
-            MainsDesJoueurs[0].lesCartes[4] = new Carte(1, 4);
+            MainsDesJoueurs[0].lesCartes[0] = new Carte(1, 10);
+            MainsDesJoueurs[0].lesCartes[1] = new Carte(2, 10);
+            MainsDesJoueurs[0].lesCartes[2] = new Carte(3, 10);
+            MainsDesJoueurs[0].lesCartes[3] = new Carte(0, 7);
+            MainsDesJoueurs[0].lesCartes[4] = new Carte(2, 8);
 
-            MainsDesJoueurs[1].lesCartes[0] = new Carte(0, 8);
-            MainsDesJoueurs[1].lesCartes[1] = new Carte(1, 8);
-            MainsDesJoueurs[1].lesCartes[2] = new Carte(1, 5);
-            MainsDesJoueurs[1].lesCartes[3] = new Carte(2, 4);
+            MainsDesJoueurs[1].lesCartes[0] = new Carte(1, 10);
+            MainsDesJoueurs[1].lesCartes[1] = new Carte(2, 10);
+            MainsDesJoueurs[1].lesCartes[2] = new Carte(3, 10);
+            MainsDesJoueurs[1].lesCartes[3] = new Carte(0, 6);
             MainsDesJoueurs[1].lesCartes[4] = new Carte(2, 8);
 
             MainsDesJoueurs[2].lesCartes[0] = new Carte(0, 9);
             MainsDesJoueurs[2].lesCartes[1] = new Carte(1, 8);
-            MainsDesJoueurs[2].lesCartes[2] = new Carte(2, 7);
+            MainsDesJoueurs[2].lesCartes[2] = new Carte(2, 5);
             MainsDesJoueurs[2].lesCartes[3] = new Carte(1, 6);
             MainsDesJoueurs[2].lesCartes[4] = new Carte(3, 5);
 
             MainsDesJoueurs[3].lesCartes[0] = new Carte(3, 12);
             MainsDesJoueurs[3].lesCartes[1] = new Carte(3, 9);
-            MainsDesJoueurs[3].lesCartes[2] = new Carte(3, 8);
+            MainsDesJoueurs[3].lesCartes[2] = new Carte(2, 8);
             MainsDesJoueurs[3].lesCartes[3] = new Carte(3, 2);
             MainsDesJoueurs[3].lesCartes[4] = new Carte(3, 0);
         }
@@ -118,13 +125,45 @@ namespace AtelierOO_101.Classes
 
 
 
-        public int EvaluerMains(int numMain) //Calcule et initialise la valeur de chaque main des Joueurs
+        public int EvaluerMains() //Calcule et initialise la valeur de chaque main des Joueurs
         {
-            //   MainsDesJoueurs[numMain-].Evaluer();
-            MainsDesJoueurs[0].Evaluer();
+            
+            MainsDesJoueurs[0].Evaluer(0);
+            MainsDesJoueurs[1].Evaluer(1);
+            MainsDesJoueurs[2].Evaluer(2);
+            MainsDesJoueurs[3].Evaluer(3);
+
             return 0;
         }
-            /* DeterminerGagnant() Trouve le ou les gagnants
-         */
+        public int determinerGagnant()
+        {
+            int gagnant = 0;
+            int[] valeursDesMains = new int[4];
+            valeursDesMains[0] = (int)(MainsDesJoueurs[0].getValeurMain());
+            valeursDesMains[1] = (int)(MainsDesJoueurs[1].getValeurMain());
+            valeursDesMains[2] = (int)(MainsDesJoueurs[2].getValeurMain());
+            valeursDesMains[3] = (int)(MainsDesJoueurs[3].getValeurMain());
+
+            gagnant = valeursDesMains.Max();
+            
+
+            if (gagnant == valeursDesMains[0])
+            {
+                gagnant = 0;
+            }
+            if (gagnant == valeursDesMains[1])
+            {
+                gagnant = 1;
+            }
+            if (gagnant == valeursDesMains[2])
+            {
+                gagnant = 2;
+            }
+            if (gagnant == valeursDesMains[3])
+            {
+                gagnant = 3;
+            }
+            return gagnant;
+        }
     }
 }
